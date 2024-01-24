@@ -1,9 +1,11 @@
-class Scanner:
+class Eval:
     def eval(self, exp):
         if self.is_number(exp):
             return exp
         elif self.is_string(exp):
-            return exp
+            return exp[1:-1]
+        elif exp[0] == '+':
+            return exp[1] + exp[2]
 
     @staticmethod
     def is_number(exp):
@@ -11,4 +13,7 @@ class Scanner:
 
     @staticmethod
     def is_string(exp):
-        return isinstance(exp, str)
+        if not isinstance(exp, str):
+            return False
+
+        return exp[0] == exp[-1] == '"'
