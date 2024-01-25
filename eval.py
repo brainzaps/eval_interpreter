@@ -4,8 +4,14 @@ class Eval:
             return exp
         elif self.is_string(exp):
             return exp[1:-1]
+        elif exp[0] == '/':
+            return self.eval(exp[1]) / self.eval(exp[2])
+        elif exp[0] == '*':
+            return self.eval(exp[1]) * self.eval(exp[2])
         elif exp[0] == '+':
-            return exp[1] + exp[2]
+            return self.eval(exp[1]) + self.eval(exp[2])
+        elif exp[0] == '-':
+            return self.eval(exp[1]) - self.eval(exp[2])
 
     @staticmethod
     def is_number(exp):
