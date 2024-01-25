@@ -3,7 +3,7 @@ import unittest
 from eval import Eval
 
 
-class TestScanner(unittest.TestCase):
+class TestMath(unittest.TestCase):
     def setUp(self):
         self.eva = Eval()
 
